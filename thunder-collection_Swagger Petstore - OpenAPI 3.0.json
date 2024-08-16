@@ -1,0 +1,418 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Swagger Petstore - OpenAPI 3.0",
+    "collectionId": "86f056b9-0721-4c79-9731-6cb108557f31",
+    "dateExported": "2024-08-07T12:57:47.824Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "c735829a-8471-4b0c-bb7e-ded827202987",
+            "name": "pet",
+            "containerId": "",
+            "created": "2024-08-07T12:57:35.477Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "a207fa78-2852-421d-aba8-e3a4b149ff6a",
+            "name": "store",
+            "containerId": "",
+            "created": "2024-08-07T12:57:35.479Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "b99492f5-1f29-4c01-90ba-fdff2e56016b",
+            "name": "user",
+            "containerId": "",
+            "created": "2024-08-07T12:57:35.480Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "1e0ca2aa-97bb-4593-b8e8-d1ed2cf47a97",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "c735829a-8471-4b0c-bb7e-ded827202987",
+            "name": "Update an existing pet",
+            "url": "/pet",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2024-08-07T12:57:35.478Z",
+            "modified": "2024-08-07T12:57:35.478Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 10,\n  \"name\": \"doggie\",\n  \"category\": {\n    \"id\": 1,\n    \"name\": \"Dogs\"\n  },\n  \"photoUrls\": [\n    \"thunder\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 2,\n      \"name\": \"thunder\"\n    }\n  ],\n  \"status\": \"available\"\n}"
+            }
+        },
+        {
+            "_id": "c1b293bb-1c0a-4f65-958a-021675203a91",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "c735829a-8471-4b0c-bb7e-ded827202987",
+            "name": "Add a new pet to the store",
+            "url": "/pet",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-08-07T12:57:35.479Z",
+            "modified": "2024-08-07T12:57:35.479Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 10,\n  \"name\": \"doggie\",\n  \"category\": {\n    \"id\": 1,\n    \"name\": \"Dogs\"\n  },\n  \"photoUrls\": [\n    \"thunder\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 65,\n      \"name\": \"thunder\"\n    }\n  ],\n  \"status\": \"available\"\n}"
+            }
+        },
+        {
+            "_id": "fa890d76-4a30-48ac-a8a3-cc5e08ff363f",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "c735829a-8471-4b0c-bb7e-ded827202987",
+            "name": "Finds Pets by status",
+            "url": "/pet/findByStatus?status=available",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-08-07T12:57:35.480Z",
+            "modified": "2024-08-07T12:57:35.480Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "status",
+                    "isPath": false,
+                    "value": "available"
+                }
+            ]
+        },
+        {
+            "_id": "b1fc89fb-a4a6-4534-aeb9-0061c35a60bb",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "c735829a-8471-4b0c-bb7e-ded827202987",
+            "name": "Finds Pets by tags",
+            "url": "/pet/findByTags?tags=thunder",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-08-07T12:57:35.481Z",
+            "modified": "2024-08-07T12:57:35.481Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "tags",
+                    "isPath": false,
+                    "value": "thunder"
+                }
+            ]
+        },
+        {
+            "_id": "62769204-72e6-40f8-9e98-3cb18351fbce",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "c735829a-8471-4b0c-bb7e-ded827202987",
+            "name": "Find pet by ID",
+            "url": "/pet/{petId}",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-08-07T12:57:35.482Z",
+            "modified": "2024-08-07T12:57:35.482Z",
+            "headers": [
+                {
+                    "name": "api_key",
+                    "value": "{{api_key}}"
+                }
+            ],
+            "params": [
+                {
+                    "name": "petId",
+                    "isPath": true,
+                    "value": "75"
+                }
+            ]
+        },
+        {
+            "_id": "b1419341-194c-4b5c-b76e-d4b8ab63d20c",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "c735829a-8471-4b0c-bb7e-ded827202987",
+            "name": "Updates a pet in the store with form data",
+            "url": "/pet/{petId}?name=thunder&status=thunder",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-08-07T12:57:35.483Z",
+            "modified": "2024-08-07T12:57:35.483Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "petId",
+                    "isPath": true,
+                    "value": "49"
+                },
+                {
+                    "name": "name",
+                    "isPath": false,
+                    "value": "thunder"
+                },
+                {
+                    "name": "status",
+                    "isPath": false,
+                    "value": "thunder"
+                }
+            ]
+        },
+        {
+            "_id": "5b752c14-bfd2-4c42-8c67-063dd41cf830",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "c735829a-8471-4b0c-bb7e-ded827202987",
+            "name": "Deletes a pet",
+            "url": "/pet/{petId}",
+            "method": "DELETE",
+            "sortNum": 70000,
+            "created": "2024-08-07T12:57:35.484Z",
+            "modified": "2024-08-07T12:57:35.484Z",
+            "headers": [
+                {
+                    "name": "api_key",
+                    "isPath": false,
+                    "value": "thunder"
+                }
+            ],
+            "params": [
+                {
+                    "name": "petId",
+                    "isPath": true,
+                    "value": "56"
+                }
+            ]
+        },
+        {
+            "_id": "92cbfeb4-a8fa-47ed-a40c-54b8d877b54d",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "c735829a-8471-4b0c-bb7e-ded827202987",
+            "name": "uploads an image",
+            "url": "/pet/{petId}/uploadImage?additionalMetadata=thunder",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-08-07T12:57:35.485Z",
+            "modified": "2024-08-07T12:57:35.485Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "petId",
+                    "isPath": true,
+                    "value": "53"
+                },
+                {
+                    "name": "additionalMetadata",
+                    "isPath": false,
+                    "value": "thunder"
+                }
+            ]
+        },
+        {
+            "_id": "56006876-f65c-4bc7-9e08-00a748b92358",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "a207fa78-2852-421d-aba8-e3a4b149ff6a",
+            "name": "Returns pet inventories by status",
+            "url": "/store/inventory",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-08-07T12:57:35.486Z",
+            "modified": "2024-08-07T12:57:35.486Z",
+            "headers": [
+                {
+                    "name": "api_key",
+                    "value": "{{api_key}}"
+                }
+            ],
+            "params": [],
+            "auth": {}
+        },
+        {
+            "_id": "457e7f06-182d-4963-bf31-8fc915e7ed86",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "a207fa78-2852-421d-aba8-e3a4b149ff6a",
+            "name": "Place an order for a pet",
+            "url": "/store/order",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2024-08-07T12:57:35.487Z",
+            "modified": "2024-08-07T12:57:35.487Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 10,\n  \"petId\": 198772,\n  \"quantity\": 7,\n  \"shipDate\": \"2024-08-07T12:57:35.471Z\",\n  \"status\": \"approved\",\n  \"complete\": true\n}"
+            }
+        },
+        {
+            "_id": "e2305d21-41a4-4c14-bf0e-7d6da05c7256",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "a207fa78-2852-421d-aba8-e3a4b149ff6a",
+            "name": "Find purchase order by ID",
+            "url": "/store/order/{orderId}",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2024-08-07T12:57:35.488Z",
+            "modified": "2024-08-07T12:57:35.488Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "orderId",
+                    "isPath": true,
+                    "value": "73"
+                }
+            ]
+        },
+        {
+            "_id": "a4229adf-c27a-4702-be9a-52ad61def603",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "a207fa78-2852-421d-aba8-e3a4b149ff6a",
+            "name": "Delete purchase order by ID",
+            "url": "/store/order/{orderId}",
+            "method": "DELETE",
+            "sortNum": 120000,
+            "created": "2024-08-07T12:57:35.489Z",
+            "modified": "2024-08-07T12:57:35.489Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "orderId",
+                    "isPath": true,
+                    "value": "70"
+                }
+            ]
+        },
+        {
+            "_id": "a4eb96c8-f76a-4352-83ce-c7281bc777a1",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "b99492f5-1f29-4c01-90ba-fdff2e56016b",
+            "name": "Create user",
+            "url": "/user",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2024-08-07T12:57:35.490Z",
+            "modified": "2024-08-07T12:57:35.490Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 10,\n  \"username\": \"theUser\",\n  \"firstName\": \"John\",\n  \"lastName\": \"James\",\n  \"email\": \"john@email.com\",\n  \"password\": \"12345\",\n  \"phone\": \"12345\",\n  \"userStatus\": 1\n}"
+            }
+        },
+        {
+            "_id": "8961ac6a-b75b-4d25-b6a6-3fbeffe239ff",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "b99492f5-1f29-4c01-90ba-fdff2e56016b",
+            "name": "Creates list of users with given input array",
+            "url": "/user/createWithList",
+            "method": "POST",
+            "sortNum": 140000,
+            "created": "2024-08-07T12:57:35.491Z",
+            "modified": "2024-08-07T12:57:35.491Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "[\n  {\n    \"id\": 10,\n    \"username\": \"theUser\",\n    \"firstName\": \"John\",\n    \"lastName\": \"James\",\n    \"email\": \"john@email.com\",\n    \"password\": \"12345\",\n    \"phone\": \"12345\",\n    \"userStatus\": 1\n  }\n]"
+            }
+        },
+        {
+            "_id": "0474d4cc-fa1d-441d-82a0-07352487786b",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "b99492f5-1f29-4c01-90ba-fdff2e56016b",
+            "name": "Logs user into the system",
+            "url": "/user/login?username=thunder&password=thunder",
+            "method": "GET",
+            "sortNum": 150000,
+            "created": "2024-08-07T12:57:35.492Z",
+            "modified": "2024-08-07T12:57:35.492Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "username",
+                    "isPath": false,
+                    "value": "thunder"
+                },
+                {
+                    "name": "password",
+                    "isPath": false,
+                    "value": "thunder"
+                }
+            ]
+        },
+        {
+            "_id": "9a8b8d16-fce1-46a4-a74c-6cb9ad0b9dbd",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "b99492f5-1f29-4c01-90ba-fdff2e56016b",
+            "name": "Logs out current logged in user session",
+            "url": "/user/logout",
+            "method": "GET",
+            "sortNum": 160000,
+            "created": "2024-08-07T12:57:35.493Z",
+            "modified": "2024-08-07T12:57:35.493Z",
+            "headers": [],
+            "params": []
+        },
+        {
+            "_id": "fe241214-4881-4d5b-aeee-ee35be0662c0",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "b99492f5-1f29-4c01-90ba-fdff2e56016b",
+            "name": "Get user by user name",
+            "url": "/user/{username}",
+            "method": "GET",
+            "sortNum": 170000,
+            "created": "2024-08-07T12:57:35.494Z",
+            "modified": "2024-08-07T12:57:35.494Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "username",
+                    "isPath": true,
+                    "value": "thunder"
+                }
+            ]
+        },
+        {
+            "_id": "bf9179e9-8d81-418b-90e6-01a7de9dd148",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "b99492f5-1f29-4c01-90ba-fdff2e56016b",
+            "name": "Update user",
+            "url": "/user/{username}",
+            "method": "PUT",
+            "sortNum": 180000,
+            "created": "2024-08-07T12:57:35.495Z",
+            "modified": "2024-08-07T12:57:35.495Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "username",
+                    "isPath": true,
+                    "value": "thunder"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 10,\n  \"username\": \"theUser\",\n  \"firstName\": \"John\",\n  \"lastName\": \"James\",\n  \"email\": \"john@email.com\",\n  \"password\": \"12345\",\n  \"phone\": \"12345\",\n  \"userStatus\": 1\n}"
+            }
+        },
+        {
+            "_id": "d42f1950-3168-4e27-8740-a56963ba1a75",
+            "colId": "86f056b9-0721-4c79-9731-6cb108557f31",
+            "containerId": "b99492f5-1f29-4c01-90ba-fdff2e56016b",
+            "name": "Delete user",
+            "url": "/user/{username}",
+            "method": "DELETE",
+            "sortNum": 190000,
+            "created": "2024-08-07T12:57:35.496Z",
+            "modified": "2024-08-07T12:57:35.496Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "username",
+                    "isPath": true,
+                    "value": "thunder"
+                }
+            ]
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "{{baseUrl}}"
+        }
+    },
+    "ref": "E7z26Mz37ncVbkyh4G7-h4-jDo5qf6kgKg9GsGjkUhH3jYrhABrjTeo_hcEDyO_zNRA0k17zMuOTxEe-1iFtQg"
+}
