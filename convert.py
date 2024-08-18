@@ -1,32 +1,46 @@
 import json
 import yaml
-from urllib.parse import urlparse, parse_qs
 
 def thunder_to_openapi(thunder_json):
+    # Create a mapping of folder IDs to folder names
+    folder_mapping = {folder['_id']: folder['name'] for folder in thunder_json['folders']}
+    
     openapi = {
         "openapi": "3.0.0",
         "info": {
             "title": thunder_json['collectionName'],
             "version": thunder_json['version']
         },
+        "tags": [],
         "paths": {},
         "components": {
             "schemas": {}
         }
     }
-
+    
+    # Add tags to OpenAPI spec based on folder names
+    for folder in thunder_json['folders']:
+        openapi['tags'].append({
+            "name": folder['name'],
+            "description": f"Operations related to {folder['name']}"
+        })
+    
     for request in thunder_json['requests']:
-        url = request['url']
-        parsed_url = urlparse(url)
-        path = parsed_url.path
-        query_params = parse_qs(parsed_url.query)
+        path = request['url']
         method = request['method'].lower()
 
+        # Ensure query strings are stripped from the path
+        path = path.split('?')[0]
+        
         if path not in openapi['paths']:
             openapi['paths'][path] = {}
 
+        # Assign the tag based on the folder the request belongs to
+        tag = folder_mapping.get(request['containerId'], "default")
+        
         openapi['paths'][path][method] = {
             "summary": request['name'],
+            "tags": [tag],
             "parameters": [],
             "responses": {
                 "200": {
@@ -35,6 +49,7 @@ def thunder_to_openapi(thunder_json):
             }
         }
 
+        # Process query and path parameters
         if 'params' in request and request['params']:
             for param in request['params']:
                 param_spec = {
@@ -47,18 +62,7 @@ def thunder_to_openapi(thunder_json):
                 }
                 openapi['paths'][path][method]['parameters'].append(param_spec)
 
-        # # Add query parameters from URL
-        # for key, values in query_params.items():
-        #     param_spec = {
-        #         "name": key,
-        #         "in": "query",
-        #         "required": False,  # Query parameters are generally optional
-        #         "schema": {
-        #             "type": "string"
-        #         }
-        #     }
-        #     openapi['paths'][path][method]['parameters'].append(param_spec)
-
+        # Process the request body if it exists
         if 'body' in request and request['body']:
             openapi['paths'][path][method]['requestBody'] = {
                 "content": {
