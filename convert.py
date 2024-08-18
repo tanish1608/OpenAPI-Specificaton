@@ -86,7 +86,7 @@ def thunder_to_openapi(thunder_json):
     return openapi
 
 # Load Thunder Client JSON
-with open('thunder-collection_Swagger Petstore - OpenAPI 3.0.json', 'r') as file:
+with open('Example.json', 'r') as file:
     thunder_json = json.load(file)
 
 # Convert to OpenAPI
