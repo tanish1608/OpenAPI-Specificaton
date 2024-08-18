@@ -4,14 +4,14 @@
 
 ### Things to do further
 
-- [ ] Support for Multiple Response Codes
-- [ ] Detailed Response Descriptions
+
 - [ ] Authentication and Security
 - [ ] Content-Type Handling
 - [ ] Schema Definitions
 - [x] Tags and Grouping
-- [ ] Error Handling and Validation
 - [ ] Testing on multiple examples
+- [ ] Support for Multiple Response Codes
+- [ ] Detailed Response Descriptions
 - [ ] Convert code to JS
 
 - To test the OpenAPI spec use this url - https://app.swaggerhub.com/home

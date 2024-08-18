@@ -11,12 +11,14 @@ def thunder_to_openapi(thunder_json):
             "title": thunder_json['collectionName'],
             "version": thunder_json['version']
         },
+        "servers": [],
         "tags": [],
         "paths": {},
         "components": {
             "schemas": {}
         }
     }
+    openapi['servers'].append({"url": thunder_json['settings']['options']['baseUrl']})
     
     # Add tags to OpenAPI spec based on folder names
     for folder in thunder_json['folders']:
@@ -24,11 +26,12 @@ def thunder_to_openapi(thunder_json):
             "name": folder['name'],
             "description": f"Operations related to {folder['name']}"
         })
+
     
     for request in thunder_json['requests']:
         path = request['url']
         method = request['method'].lower()
-
+        description = request.get('docs', 'No description provided')
         # Ensure query strings are stripped from the path
         path = path.split('?')[0]
         
@@ -41,13 +44,15 @@ def thunder_to_openapi(thunder_json):
         openapi['paths'][path][method] = {
             "summary": request['name'],
             "tags": [tag],
+            "description": description,
             "parameters": [],
             "responses": {
                 "200": {
-                    "description": "Success"
+                    "description": ""
                 }
             }
         }
+
 
         # Process query and path parameters
         if 'params' in request and request['params']:
@@ -56,6 +61,7 @@ def thunder_to_openapi(thunder_json):
                     "name": param['name'],
                     "in": "query" if not param['isPath'] else "path",
                     "required": param['isPath'],
+                    "description": request.get('description', 'No description provided'),
                     "schema": {
                         "type": "string"
                     }
@@ -74,6 +80,8 @@ def thunder_to_openapi(thunder_json):
                     }
                 }
             }
+
+
 
     return openapi
 

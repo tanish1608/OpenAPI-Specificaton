@@ -43,7 +43,24 @@
             "body": {
                 "type": "json",
                 "raw": "{\n  \"id\": 10,\n  \"name\": \"doggie\",\n  \"category\": {\n    \"id\": 1,\n    \"name\": \"Dogs\"\n  },\n  \"photoUrls\": [\n    \"thunder\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 2,\n      \"name\": \"thunder\"\n    }\n  ],\n  \"status\": \"available\"\n}"
-            }
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "asdasdfa",
+                    "password": "ASDaadasd"
+                }
+            },
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "count",
+                    "value": "jfdfgjdgfj"
+                }
+            ],
+            "docs": "diytfuduytifyitykckyiytkckytd\nnladfhsd.b "
+
         },
         {
             "_id": "c1b293bb-1c0a-4f65-958a-021675203a91",
